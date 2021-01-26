@@ -56,6 +56,8 @@ RUN useradd -mr -d /home/runner runner && \
 RUN apt-get -y clean && \
     rm -rf /var/cache/apt /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN echo "ALL            ALL = (ALL) NOPASSWD: ALL" >> /etc/sudoers
+
 COPY entrypoint.sh /
 WORKDIR /home/runner
 USER runner
